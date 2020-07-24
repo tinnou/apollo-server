@@ -87,7 +87,7 @@ function printNode(
               .join(`\n${indentationNext}`) +
             config.spacingOuter +
             indentation
-          : '') +
+          : '')+
         '}';
       break;
     case 'Flatten':

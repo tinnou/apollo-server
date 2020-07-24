@@ -247,6 +247,8 @@ export class ApolloGateway implements GraphQLService {
       this.logger = loglevelLogger;
     }
 
+    this.logger.warn("Building the Gateway...");
+
     if (isLocalConfig(this.config)) {
       this.schema = this.createSchema(this.config.localServiceList);
     }
@@ -657,7 +659,9 @@ export class ApolloGateway implements GraphQLService {
       queryPlan = await this.queryPlanStore.get(queryPlanStoreKey);
     }
 
-    if (!queryPlan) {
+    this.logger.info("Bypassing queryPlanStore cache")
+
+    if (true || !queryPlan) {
       queryPlan = buildQueryPlan(operationContext, {
         autoFragmentization: Boolean(
           this.config.experimental_autoFragmentization,

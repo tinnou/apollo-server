@@ -292,6 +292,8 @@ export class ApolloServerBase {
       }
     }
 
+    this.logger.warn("Constructing Apollo Server...");
+
     // In an effort to avoid over-exposing the API key itself, extract the
     // service ID from the API key for plugins which only needs service ID.
     // The truthiness of this value can also be used in other forks of logic

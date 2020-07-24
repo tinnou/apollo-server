@@ -995,10 +995,7 @@ export class QueryPlanningContext {
 
     if (!fieldDef) {
       throw new GraphQLError(
-        `Cannot query field "${fieldNode.name.value}" on type "${String(
-          parentType,
-        )}"`,
-        fieldNode,
+        `Cannot query field "${fieldNode.name.value}" on type "${String(parentType,)}"`, fieldNode,
       );
     }
 
